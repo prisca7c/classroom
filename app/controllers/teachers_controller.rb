@@ -12,6 +12,8 @@ class TeachersController < ApplicationController
   end
 
   def show
+    @teacher = User.where(type: "Teacher", type_id: params[:id]).role
+    @teacher = Teacher.find_by_id(params[:id])
   end
 
   def edit

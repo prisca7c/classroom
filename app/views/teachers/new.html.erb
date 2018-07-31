@@ -1,0 +1,11 @@
+<h3>Teacher</h3>
+
+<%= link_to "Login", link_to new_session_path %>
+
+
+
+<%= form_for @teacher do |f| %>
+<%= f.text_field :name %>
+<%= f.text_field :email %>
+<%= f.submit "Teacher Sign Up" %>
+<% end %>
