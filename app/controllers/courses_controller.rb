@@ -1,5 +1,7 @@
 class CoursesController < ApplicationController
 
+  before_action { role_is?(Teacher) || redirect_to(root_path) }
+
   def index
     @courses = Course.all
   end

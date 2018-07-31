@@ -1,4 +1,19 @@
 class ApplicationController < ActionController::Base
+  protected
+
+  def create
+    User.new(user_params, role: Teacher.new(role_params))
+  end
+
+  def current_user
+    @current_user ||= User.find(session[:current_user_id])
+  end
+
+  def current_role
+    current_user.role
+  end
+
+  delegate :role_is?, to: :current_user
 end
 #enrollment to join classes_students attr semester
 
@@ -10,3 +25,11 @@ end
 #The student show page will show only the students classes.  Will have link to browse all courses on the courses index.
 #Will have link on the course index for student to add a course.  When teachers visit the page they will see their courses only and the students in them.
 #Grade will only exist on the student show page and the teacher classes/class page
+
+
+
+
+#enrollments controller
+#courses controller for teachers
+#courses controller for students
+#grade as column in enrollment

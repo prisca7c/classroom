@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
+  resource :profiles
   resources :courses
-  resources :students
-  resources :teachers
+  resources :teacher_login
   root 'static_pages#home'
 end
