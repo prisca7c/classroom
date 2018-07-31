@@ -4,3 +4,6 @@
 <li><%= student.name %></li>
 <% end %>
 <% end %>
+ <% if @user.role_is?(Student) %>
+ <%= link_to "Enroll In Course", new_enrollment_path %>
+ <% end %>

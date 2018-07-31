@@ -1,3 +1,6 @@
+<h2>Student</h2>
+<p>Sign up or <%= link_to "Log in", new_session_path %></p>
+
 <%= form_for @user, url: "/student_login" do |f| %>
 <%= f.label :name %>
 <%= f.text_field :name %>

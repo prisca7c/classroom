@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
   def show
-    @role = User.last.role
+    @user = User.find(session[:user_id])
   end
 end

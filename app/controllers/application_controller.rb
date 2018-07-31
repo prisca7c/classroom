@@ -1,19 +1,19 @@
 class ApplicationController < ActionController::Base
   protected
 
-  def create
-    User.new(user_params, role: Teacher.new(role_params))
-  end
+  # def create
+  #   User.new(user_params, role: Teacher.new(role_params))
+  # end
 
-  def current_user
-    @current_user ||= User.find(session[:current_user_id])
-  end
+  # def current_user
+  #   @current_user ||= User.find(session[:current_user_id])
+  # end
 
-  def current_role
-    current_user.role
-  end
+  # def current_role
+  #   current_user.role
+  # end
 
-  delegate :role_is?, to: :current_user
+  # delegate :role_is?, to: :current_user
 end
 #enrollment to join classes_students attr semester
 
