@@ -4,6 +4,12 @@ I AM A TEACHER
 <ul>
 <% @user.role.courses.each do |course| %>
 <li><%= course.name %></li>
+    <% unless course.students.empty? %>
+    <p>Students:</p>
+    <% course.students.each do |student| %>
+    <%= student.student_name(student.id) %>
+      <% end %>
+    <% end %>
 <% end %>
 </ul>
 <%= link_to "View all courses", courses_path %>
