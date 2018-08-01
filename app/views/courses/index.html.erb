@@ -1,5 +1,7 @@
+<h3>Course Catalogue</h3>
+
 <% @courses.each do |course| %>
-<%= course.name %>
+<li><%= course.name %></li>
 <% end %>
  <% if @user.role_is?(Student) %>
  <br>
