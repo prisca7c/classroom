@@ -2,6 +2,7 @@
 
 <% @courses.each do |course| %>
 <li><%= course.name %></li>
+  <p>Taught by <%= course.course_teacher(course)%></p>
 <% end %>
  <% if @user.role_is?(Student) %>
  <br>
