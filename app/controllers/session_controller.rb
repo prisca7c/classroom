@@ -12,5 +12,10 @@ class SessionController < ApplicationController
     else
       redirect_to new_session_path
     end
-   end
+  end
+
+  def destroy
+    session.delete :user_id if session[:user_id]
+    redirect_to "/"
+  end
 end
