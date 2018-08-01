@@ -1,8 +1,10 @@
 I AM A STUDENT
-
 SHOW ME THE STUDENT'S CLASSES
+
+<h2>Your courses:</h2>
 <% @user.role.courses.each do |course| %>
-<%= course.name %>
+
+<p><%= course.name %></p>
 <% end %>
 <br>
 <%= link_to "View Course Catalogue", courses_path %>

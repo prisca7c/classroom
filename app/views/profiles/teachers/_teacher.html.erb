@@ -1,8 +1,12 @@
 I AM A TEACHER
-
+<h3> Welcome <%= @user.name %>! </h3>
+<h3>Your courses:</h3>
 <ul>
-<% @role.courses.each do |course| %>
+<% @user.role.courses.each do |course| %>
 <li><%= course.name %></li>
 <% end %>
 </ul>
+<%= link_to "View all courses", courses_path %>
+<%= link_to "Create a new course", new_course_path %>
+
 
