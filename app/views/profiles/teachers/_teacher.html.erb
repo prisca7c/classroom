@@ -15,5 +15,5 @@ I AM A TEACHER
 <%= link_to "View all courses", courses_path %>
 <br>
 <%= link_to "Create a new course", new_course_path %>
-
+<%= link_to "Log Out", session_path(@user), method: "delete" %>
 
