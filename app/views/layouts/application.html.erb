@@ -7,11 +7,38 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+     <style>
+        .jumbotron {
+            margin-bottom: 0px!important;
+        }
+    </style>
   </head>
 
 
   <body>
-    <h1>Classroom</h1>
-    <%= yield %>
+<div class="jumbotron" style="background-color: #CCE5FF"  >
+  <h1><em>Classroom</em></h1>
+</div>
+  <!-- <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
+  <div class="row">
+      <div class="col-sm-3">
+        <%= yield %>
+      </div>
+      <div class="col-sm-9">
+      <img src="<%= asset_path('classroompic.jpg') %>" alt="Classroom Picture" class="img-fluid"  >
+    </div>
+    </div>
+   </div>
+  </div>
+
   </body>
 </html>
