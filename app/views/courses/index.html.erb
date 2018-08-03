@@ -1,9 +1,17 @@
-<h3>Course Catalogue</h3>
+<h3>Course Catalogue</h3><br>
 
-<% @courses.each do |course| %>
+<h4>Fall 2018</h4>
+<% Course.fall_semester.each do |course| %>
+<li><%= course.name %></li>
+  <p>Taught by <%= course.course_teacher(course)%></p>
+<% end %><br>
+
+<h4>Winter 2019</h4>
+<% Course.winter_semester.each do |course| %>
 <li><%= course.name %></li>
   <p>Taught by <%= course.course_teacher(course)%></p>
 <% end %>
+
  <% if @user.role_is?(Student) %>
  <br>
  <%= link_to "Enroll In Course", new_enrollment_path %>
