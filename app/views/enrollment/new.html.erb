@@ -4,6 +4,8 @@
 <%= f.collection_select(:name, Course.fall_semester, :id, :name) %><br><br>
 <%= f. label "Winter 2019:" %><br>
 <%= f.collection_select(:name, Course.winter_semester, :id, :name) %><br><br>
+<%= f.label :student_year %>:
+<%= select_tag :year, options_for_select([1,2,3,4])  %><br>
 <%= f.submit "Enroll!" %><br>
 <% end %><br>
 
