@@ -5,10 +5,13 @@ class EnrollmentController < ApplicationController
   end
 
   def create
-    # binding.pry
-    course = Course.find(params[:course][:name])
-    student = User.find(session[:user_id])
-    student.role.enrollments.build(course_id: course.id, student_id: student.id).save
-    redirect_to profiles_path(student)
+    if params[:course][:name].empty?
+      redirect_to new_enrollment_path
+    else
+      course = Course.find(params[:course][:name])
+      student = User.find(session[:user_id])
+      student.role.enrollments.build(course_id: course.id, student_id: student.id, year: params[:year]).save
+      redirect_to profiles_path(student)
+    end
   end
 end
