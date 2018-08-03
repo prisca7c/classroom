@@ -10,4 +10,12 @@ class Student < ApplicationRecord
       end
     end
   end
+
+  def fall_2018
+    courses.select{|course| course.semester == "Fall 2018"}
+  end
+
+  def winter_2019
+    courses.select{|course| course.semester == "Winter 2019"}
+  end
 end

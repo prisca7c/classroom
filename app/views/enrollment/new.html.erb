@@ -1,8 +1,36 @@
+<a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+Fall 2018 Courses</a>
+<a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">Winter 2019 Courses</a>
+<div class="row">
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample1">
+      <div class="card card-body">
+<%= form_for @course, url: '/enrollment' do |f| %>
+<%= f.label "Fall 2018:" %><br>
+<%= f.collection_select(:name, Course.fall_semester, :id, :name,{include_blank: 'Select a course'}) %><br><br>
+<%= f.label :student_year %>:
+<%= select_tag :year, options_for_select([1,2,3,4])  %><br>
+<%= f.submit "Enroll!" %><br>
+<% end %><br>
+      </div>
+    </div>
+  </div>
+
+<div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample2">
+      <div class="card card-body">
 
 <%= form_for @course, url: '/enrollment' do |f| %>
-<%= f.label "Courses:" %><br>
-<%= f.collection_select(:name, Course.all, :id, :name) %><br><br>
-<%= f.label "Semester:" %><br>
-<%= select_tag :semester, options_for_select(Enrollment::SEMESTER_OPTIONS)  %><br><br>
+<%= f. label "Winter 2019:" %><br>
+<%= f.collection_select(:name, Course.winter_semester, :id, :name,{include_blank: 'Select a course'}) %><br><br>
+<%= f.label :student_year %>:
+<%= select_tag :year, options_for_select([1,2,3,4])  %><br>
 <%= f.submit "Enroll!" %><br>
-<% end %>
+<% end %><br>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<%= link_to "Return to Course Catalogue", courses_path %>

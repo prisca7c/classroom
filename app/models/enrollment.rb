@@ -1,5 +1,8 @@
 class Enrollment < ApplicationRecord
-  SEMESTER_OPTIONS = ["Fall 2018", "Winter 2019"]
   belongs_to :student
   belongs_to :course
+
+  def enrollment_date
+    created_at.strftime('%v') if created_at
+  end
 end
