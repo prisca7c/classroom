@@ -13,7 +13,7 @@ class CoursesController < ApplicationController
 
   def create
     teacher = User.find_by_id(session[:user_id]).role
-    Course.find_or_create_by(name: params[:course][:name], teacher: teacher)
+    course = Course.create(name: params[:course][:name], teacher: teacher, semester: params[:semester])
     redirect_to profiles_path(teacher)
   end
 

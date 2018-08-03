@@ -1,8 +1,8 @@
 
 <%= form_for @course, url: '/enrollment' do |f| %>
-<%= f.label "Courses:" %><br>
-<%= f.collection_select(:name, Course.all, :id, :name) %><br><br>
-<%= f.label "Semester:" %><br>
-<%= select_tag :semester, options_for_select(Enrollment::SEMESTER_OPTIONS)  %><br><br>
+<%= f.label "Fall 2018:" %><br>
+<%= f.collection_select(:name, Course.fall_semester, :id, :name) %><br><br>
+<%= f. label "Winter 2019:" %><br>
+<%= f.collection_select(:name, Course.winter_semester, :id, :name) %><br><br>
 <%= f.submit "Enroll!" %><br>
 <% end %>
