@@ -5,4 +5,6 @@
 <%= f. label "Winter 2019:" %><br>
 <%= f.collection_select(:name, Course.winter_semester, :id, :name) %><br><br>
 <%= f.submit "Enroll!" %><br>
-<% end %>
+<% end %><br>
+
+<%= link_to "Return to Course Catalogue", courses_path %>
