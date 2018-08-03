@@ -1,4 +1,5 @@
 class Course < ApplicationRecord
+  SEMESTER_OPTIONS = ["Fall 2018", "Winter 2019"]
   has_many :enrollments
   has_many :students, through: :enrollments
   belongs_to :teacher
