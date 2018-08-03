@@ -7,5 +7,5 @@
  <% if @user.role_is?(Student) %>
  <br>
  <%= link_to "Enroll In Course", new_enrollment_path %>
- <% end %>
+ <% end %><br>
  <%= link_to "Return to your profile", profiles_path(@user) %>
