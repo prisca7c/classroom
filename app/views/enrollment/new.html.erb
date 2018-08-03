@@ -1,7 +1,8 @@
 
 <%= form_for @course, url: '/enrollment' do |f| %>
-<%= f.label "Courses" %>
-<%= f.collection_select(:name, Course.all, :id, :name) %>
-<%= select_tag :semester, options_for_select(Enrollment::SEMESTER_OPTIONS)  %>
-<%= f.submit "Enroll!" %>
+<%= f.label "Courses:" %><br>
+<%= f.collection_select(:name, Course.all, :id, :name) %><br><br>
+<%= f.label "Semester:" %><br>
+<%= select_tag :semester, options_for_select(Enrollment::SEMESTER_OPTIONS)  %><br><br>
+<%= f.submit "Enroll!" %><br>
 <% end %>
