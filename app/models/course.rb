@@ -3,6 +3,7 @@ class Course < ApplicationRecord
   has_many :enrollments
   has_many :students, through: :enrollments
   belongs_to :teacher
+  validates :name, presence: true
 
   def course_teacher(course)
     User.all.each do |user|

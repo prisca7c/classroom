@@ -5,6 +5,10 @@
 <br>
 <%= f.text_field :name %>
 <br>
+<br>
 <%= select_tag :semester, options_for_select(Course::SEMESTER_OPTIONS)  %>
+
 <%= f.submit "Submit Course" %>
 <% end %>
+<br>
+<%= link_to "Return to Course Catalogue", courses_path %>
