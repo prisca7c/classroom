@@ -5,16 +5,40 @@
 <h4>Your courses:</h4><br>
 
 <p><u>Fall 2018</u></p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Course Name</th>
+      <th scope="col">Grade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
 <% @user.role.fall_2018.each do |course| %>
-<p><%= course.name %></p>
-<% end %><br>
+<th scope="row"><%=course.name %></th>
+<td></td>
+</tr>
+<% end %>
+  </tbody>
+</table>
 
 <p><u>Winter 2019</u></p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Course Name</th>
+      <th scope="col">Grade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
 <% @user.role.winter_2019.each do |course| %>
-
-<p><%= course.name %></p>
+<th scope="row"><%=course.name %></th>
+<td></td>
+</tr>
 <% end %>
-
+ </tbody>
+</table>
 <br>
 <%= link_to "View Course Catalogue", courses_path %>
 <br>

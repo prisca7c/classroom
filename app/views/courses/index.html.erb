@@ -1,16 +1,42 @@
 <h3>Course Catalogue</h3><br>
 
 <h4>Fall 2018</h4>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Course Name</th>
+      <th scope="col">Instructor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
 <% Course.fall_semester.each do |course| %>
-<li><%= course.name %></li>
-  <p>Taught by <%= course.course_teacher(course)%></p>
-<% end %><br>
+  <th scope="row"><%=course.name %></th>
+  <td><%= course.course_teacher(course) %></td>
+</tr>
+<% end %>
+
+  </tbody>
+</table>
+
 
 <h4>Winter 2019</h4>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Course Name</th>
+      <th scope="col">Instructor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
 <% Course.winter_semester.each do |course| %>
-<li><%= course.name %></li>
-  <p>Taught by <%= course.course_teacher(course)%></p>
+  <th scope="row"><%=course.name %></th>
+  <td><%= course.course_teacher(course) %></td>
+  </tr>
 <% end %>
+  </tbody>
+</table>
 
  <% if @user.role_is?(Student) %>
  <br>
