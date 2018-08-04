@@ -1,17 +1,32 @@
 <h2>Teacher Page</h2>
 <h3> Welcome, <%= @user.name %>! </h3>
 <h3>Your courses:</h3>
-<ul>
 <% @user.role.courses.each do |course| %>
-<li><%= course.name %></li>
+<%= course.name %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Students</th>
+      <th scope="col">Grade</th>
+        </tr>
+  </thead>
+  <tbody>
+    <tr>
     <% unless course.students.empty? %>
-    <p>Students:</p>
     <% course.students.each do |student| %>
-    <%= student.student_name(student.id) %>
+    <th scope="row"><%= student.student_name(student.id) %></th>
+      <td></td>
+    </tr>
       <% end %>
+      <% else %>
+      <th scope="row"> No Students Yet! </th>
+      <td></td>
+    </tr>
     <% end %>
+
+ </tbody>
+</table>
 <% end %>
-</ul>
 <%= link_to "View all courses", courses_path %>
 <br>
 <%= link_to "Create a new course", new_course_path %>
