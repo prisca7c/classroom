@@ -2,10 +2,11 @@ class Student < ApplicationRecord
   has_many :enrollments
   has_many :courses, through: :enrollments
   has_many :teachers, through: :courses
+  has_many :grades, through: :enrollments
 
-  def student_name(student_id)
+  def student_name
     User.all.each do |user|
-      if user.role_id == student_id && user.role_type == "Student"
+      if user.role_id == self.id && user.role_type == "Student"
         return user.name
       end
     end
@@ -17,5 +18,11 @@ class Student < ApplicationRecord
 
   def winter_2019
     courses.select{|course| course.semester == "Winter 2019"}
+  end
+
+  def grade
+    Enrollment.all.find do |enrollment|
+      enrollment.student_id == self.id
+    end
   end
 end

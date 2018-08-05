@@ -10,7 +10,7 @@ class EnrollmentController < ApplicationController
     else
       course = Course.find(params[:course][:name])
       student = User.find(session[:user_id])
-      student.role.enrollments.build(course_id: course.id, student_id: student.id, year: params[:year]).save
+      student.role.enrollments.build(course_id: course.id, student_id: student.id).save
       redirect_to profiles_path(student)
     end
   end

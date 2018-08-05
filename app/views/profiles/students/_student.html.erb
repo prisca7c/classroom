@@ -10,13 +10,15 @@
     <tr>
       <th scope="col">Course Name</th>
       <th scope="col">Grade</th>
+      <th scope="col">Enrolled On</th>
     </tr>
   </thead>
   <tbody>
     <tr>
 <% @user.role.fall_2018.each do |course| %>
 <th scope="row"><%=course.name %></th>
-<td></td>
+<td><%= course.course_enrollment.grade.letter %></td>
+<td><%= course.course_enrollment.enrollment_date %></td>
 </tr>
 <% end %>
   </tbody>
@@ -28,13 +30,15 @@
     <tr>
       <th scope="col">Course Name</th>
       <th scope="col">Grade</th>
+      <th scope="col">Enrollment On</th>
     </tr>
   </thead>
   <tbody>
     <tr>
 <% @user.role.winter_2019.each do |course| %>
 <th scope="row"><%=course.name %></th>
-<td></td>
+  <td></td>
+  <td><%= course.course_enrollment.first.enrollment_date %></td>
 </tr>
 <% end %>
  </tbody>

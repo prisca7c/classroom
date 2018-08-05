@@ -14,8 +14,8 @@
     <tr>
     <% unless course.students.empty? %>
     <% course.students.each do |student| %>
-    <th scope="row"><%= student.student_name(student.id) %></th>
-      <td></td>
+    <th scope="row"><%= student.student_name %></th>
+      <td><%= student.grade.grade.letter %></td>
     </tr>
       <% end %>
       <% else %>
