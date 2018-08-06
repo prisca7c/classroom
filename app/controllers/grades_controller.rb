@@ -1,12 +1,20 @@
 class GradesController < ApplicationController
 
-  def index
+
+
+  def edit
+    @grade = Grade.find(params[:id])
   end
 
-  def new
+  def update
+    # binding.pry
+    @grade = Grade.find(params[:id])
+    @grade.update(letter: params[:letter])
+    teacher = User.find(session[:user_id])
+    redirect_to profiles_path(teacher)
   end
 
-  def create
+  def show
+    @grade = Grade.find(params[:id])
   end
-
 end

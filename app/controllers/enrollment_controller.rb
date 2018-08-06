@@ -11,6 +11,8 @@ class EnrollmentController < ApplicationController
       course = Course.find(params[:course][:name])
       student = User.find(session[:user_id])
       student.role.enrollments.build(course_id: course.id, student_id: student.id).save
+      student.role.enrollments.last.grade = Grade.new
+      student.role.enrollments.last.save
       redirect_to profiles_path(student)
     end
   end

@@ -9,7 +9,7 @@ Fall 2018 Courses</a>
 <%= f.label "Fall 2018:" %><br>
 <%= f.collection_select(:name, Course.fall_semester, :id, :name,{include_blank: 'Select a course'}) %><br><br>
 <%= f.label :student_year %>:
-<%= select_tag :year, options_for_select([1,2,3,4])  %><br>
+<br>
 <%= f.submit "Enroll!" %><br>
 <% end %><br>
       </div>
@@ -24,7 +24,7 @@ Fall 2018 Courses</a>
 <%= f. label "Winter 2019:" %><br>
 <%= f.collection_select(:name, Course.winter_semester, :id, :name,{include_blank: 'Select a course'}) %><br><br>
 <%= f.label :student_year %>:
-<%= select_tag :year, options_for_select([1,2,3,4])  %><br>
+<br>
 <%= f.submit "Enroll!" %><br>
 <% end %><br>
       </div>
@@ -33,4 +33,4 @@ Fall 2018 Courses</a>
 </div>
 
 
-<%= link_to "Return to Course Catalogue", courses_path %>
+<%= link_to "Return to Course Catalogue", profiles_courses_path %>

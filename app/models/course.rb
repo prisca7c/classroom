@@ -27,4 +27,8 @@ class Course < ApplicationRecord
       enrollment.course_id == self.id
     end
   end
+
+  def course_grade
+    course_enrollment.grade
+  end
 end

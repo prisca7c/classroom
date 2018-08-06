@@ -17,7 +17,7 @@
     <tr>
 <% @user.role.fall_2018.each do |course| %>
 <th scope="row"><%=course.name %></th>
-<td><%= course.course_enrollment.grade.letter %></td>
+<td><%= course.course_grade.letter %></td>
 <td><%= course.course_enrollment.enrollment_date %></td>
 </tr>
 <% end %>
@@ -37,13 +37,13 @@
     <tr>
 <% @user.role.winter_2019.each do |course| %>
 <th scope="row"><%=course.name %></th>
-  <td></td>
-  <td><%= course.course_enrollment.first.enrollment_date %></td>
+  <td><%=course.course_grade.letter%></td>
+  <td><%= course.course_enrollment.enrollment_date %></td>
 </tr>
 <% end %>
  </tbody>
 </table>
 <br>
-<%= link_to "View Course Catalogue", courses_path %>
+<%= link_to "View Course Catalogue", profiles_courses_path %>
 <br>
 <%= link_to "Log Out", session_path(@user), method: "delete" %>

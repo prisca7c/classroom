@@ -1,0 +1,5 @@
+<%= form_for @grade do |f| %>
+  <%= f.label :letter %>
+  <%= select_tag :letter, options_for_select(["A","B","C","D","E"]) %>
+  <%= f.submit %>
+  <% end %>

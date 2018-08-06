@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   resources :student_login, only: [:new, :create]
   resources :session, only: [:new, :create, :destroy]
   resources :enrollment, only: [:new, :create]
-  resources :grades, only: [:new,:create,:index, :show]
+  resources :grades, only: [:new,:create,:index, :show, :edit, :update]
   root 'static_pages#home'
 end
