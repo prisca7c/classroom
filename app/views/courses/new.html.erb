@@ -1,14 +1,28 @@
 <h3>Create your course here!</h3>
 
-<%= form_for @course do |f| %>
-<%= f.label :course_name %>:
-<br>
-<%= f.text_field :name %>
-<br>
-<br>
-<%= select_tag :semester, options_for_select(Course::SEMESTER_OPTIONS)  %>
+<% if @course.errors.any? %>
+  <div id="field_with_errors">
+    <h2>There were some errors:</h2>
+    <ul>
+      <% @course.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+
+<%= form_for @course, url: profiles_courses_path do |f| %>
+  <%= f.label :course_name %>:
+  <br>
+  <%= f.text_field :name %>
+  <br>
+  <br>
+  <%= select_tag :semester, options_for_select(Course::SEMESTER_OPTIONS)  %>
 
 <%= f.submit "Submit Course" %>
 <% end %>
 <br>
-<%= link_to "Return to Course Catalogue", courses_path %>
+<%= link_to "Return to Course Catalogue", profiles_courses_path %>
+

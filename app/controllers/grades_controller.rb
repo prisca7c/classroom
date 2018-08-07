@@ -1,5 +1,6 @@
 class GradesController < ApplicationController
 
+  before_action :ensure_is_a_teacher
 
 
   def edit
@@ -8,9 +9,11 @@ class GradesController < ApplicationController
 
   def update
     # binding.pry
-    @grade = Grade.find(params[:id])
-    @grade.update(letter: params[:letter])
+    @enrollment = Enrollment.find(params[:id])
+    @enrollment.grade.update(letter: params[:letter])
     teacher = User.find(session[:user_id])
+    @enrollment.save
+    # binding.pry
     redirect_to profiles_path(teacher)
   end
 

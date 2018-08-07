@@ -15,7 +15,7 @@
     <% unless course.students.empty? %>
     <% course.students.each do |student| %>
     <th scope="row"><%= student.student_name %></th>
-      <td><%=link_to student.grade.letter, grade_path(student.grade) %></td>
+      <td><%=link_to student.grade(course).letter, grade_path(student.grade(course)) %></td>
     </tr>
       <% end %>
       <% else %>

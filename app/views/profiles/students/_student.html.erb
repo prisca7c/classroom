@@ -15,10 +15,10 @@
   </thead>
   <tbody>
     <tr>
-<% @user.role.fall_2018.each do |course| %>
-<th scope="row"><%=course.name %></th>
-<td><%= course.course_grade.letter %></td>
-<td><%= course.course_enrollment.enrollment_date %></td>
+<% @user.role.enrollments.for_semester("Fall 2018").each do |enrollment| %>
+<th scope="row"><%=enrollment.course_name %></th>
+<td><%= enrollment.grade_letter %></td>
+<td><%= enrollment.enrollment_date %></td>
 </tr>
 <% end %>
   </tbody>
@@ -37,8 +37,8 @@
     <tr>
 <% @user.role.winter_2019.each do |course| %>
 <th scope="row"><%=course.name %></th>
-  <td><%=course.course_grade.letter%></td>
-  <td><%= course.course_enrollment.enrollment_date %></td>
+  <td><%= course.course_grade(@user.role).letter%></td>
+  <td><%= @user.role.enrollments.find_by(course: course).enrollment_date %></td>
 </tr>
 <% end %>
  </tbody>

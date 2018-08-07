@@ -13,8 +13,12 @@ class CoursesController < ApplicationController
 
   def create
     teacher = User.find_by_id(session[:user_id]).role
-    course = Course.create(name: params[:course][:name], teacher: teacher, semester: params[:semester])
-    redirect_to profiles_path(teacher)
+    @course = Course.create(name: params[:course][:name], teacher: teacher, semester: params[:semester])
+    if @course.save
+      redirect_to profiles_path(teacher)
+    else
+      render :new
+    end
   end
 
   def show

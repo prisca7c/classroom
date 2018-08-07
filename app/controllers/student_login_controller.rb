@@ -5,11 +5,13 @@ class StudentLoginController < ApplicationController
   end
 
   def create
-   user = User.create(name: params[:user][:name], email: params[:user][:email], password: params[:user][:password])
-   user.role = Student.new
-   user.save
-   session[:user_id] = user.id
-   redirect_to profiles_path(user)
+   @user = User.create(name: params[:user][:name], email: params[:user][:email], password: params[:user][:password])
+   @user.role = Student.new
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to profiles_path(@user)
+    else
+    render :new
+    end
   end
-
 end

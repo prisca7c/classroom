@@ -4,13 +4,14 @@ class SessionController < ApplicationController
     @user = User.new
    end
 
-   def create
-    user = User.find_by_email(params[:user][:email])
-    if user && user.authenticate(params[:user][:password])
-      session[:user_id] = user.id
-      redirect_to profiles_path(user)
+  def create
+    @user = User.find_by_email(params[:user][:email])
+    if @user && @user.authenticate(params[:user][:password])
+      self.current_user = @user
+      redirect_to profiles_path(@user)
     else
-      redirect_to new_session_path
+      @user = User.create(email: params[:user][:email], password: params[:user][:email])
+      render :new
     end
   end
 

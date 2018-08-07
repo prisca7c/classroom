@@ -20,13 +20,13 @@ class Student < ApplicationRecord
     courses.select{|course| course.semester == "Winter 2019"}
   end
 
-  def enrollment
+  def enrollment(course)
     Enrollment.all.find do |enrollment|
-      enrollment.student_id == self.id
+      enrollment.student_id == self.id && enrollment.course_id == course.id
     end
   end
-
-  def grade
-    enrollment.grade
+#finds the first one and its the same everytime.
+  def grade(course)
+    enrollment(course).grade
   end
 end
