@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
-  protected
+protected
 
   before_action :require_login
   skip_before_action :require_login, only: %i[new home create]
@@ -14,11 +16,8 @@ class ApplicationController < ActionController::Base
   # end
 
   def ensure_is_a_teacher
-    unless role_is?(Teacher)
-      redirect_to "/"
-    end
+    redirect_to "/" unless role_is?(Teacher)
   end
-
 
   # def create
   #   User.new(user_params, role: Teacher.new(role_params))
@@ -36,6 +35,11 @@ class ApplicationController < ActionController::Base
     current_user.role
   end
 
+private
+
+  def user_params
+    params.require(:user).permit(:name, :email, :password)
+  end
+
   delegate :role_is?, to: :current_user
 end
-

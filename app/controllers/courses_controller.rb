@@ -1,5 +1,6 @@
-class CoursesController < ApplicationController
+# frozen_string_literal: true
 
+class CoursesController < ApplicationController
   # before_action { role_is?(Teacher) || redirect_to(root_path) }
 
   def index
@@ -25,12 +26,9 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
   end
 
-  def edit
-  end
+  def edit; end
 
-  def update
-  end
+  def update; end
 
-  def destroy
-  end
+  def destroy; end
 end

@@ -1,7 +1,7 @@
+# frozen_string_literal: true
+
 class GradesController < ApplicationController
-
   before_action :ensure_is_a_teacher
-
 
   def edit
     @grade = Grade.find(params[:id])

@@ -1,16 +1,17 @@
-class SessionController < ApplicationController
+# frozen_string_literal: true
 
-   def new
+class SessionController < ApplicationController
+  def new
     @user = User.new
-   end
+  end
 
   def create
     @user = User.find_by_email(params[:user][:email])
-    if @user && @user.authenticate(params[:user][:password])
+    if @user&.authenticate(params[:user][:password])
       self.current_user = @user
       redirect_to profiles_path(@user)
     else
-      @user = User.create(email: params[:user][:email], password: params[:user][:email])
+      @user = User.create(user_params)
       render :new
     end
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Student < ApplicationRecord
   has_many :enrollments
   has_many :courses, through: :enrollments
@@ -6,23 +8,21 @@ class Student < ApplicationRecord
 
   def student_name
     User.all.each do |user|
-      if user.role_id == self.id && user.role_type == "Student"
-        return user.name
-      end
+      return user.name if user.role_id == id && user.role_type == "Student"
     end
   end
 
   def fall_2018
-    courses.select{|course| course.semester == "Fall 2018"}
+    courses.select { |course| course.semester == "Fall 2018" }
   end
 
   def winter_2019
-    courses.select{|course| course.semester == "Winter 2019"}
+    courses.select { |course| course.semester == "Winter 2019" }
   end
 
   def enrollment(course)
     Enrollment.all.find do |enrollment|
-      enrollment.student_id == self.id && enrollment.course_id == course.id
+      enrollment.student_id == id && enrollment.course_id == course.id
     end
   end
 

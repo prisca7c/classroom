@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class Course < ApplicationRecord
-  SEMESTER_OPTIONS = ["Fall 2018", "Winter 2019"]
+  SEMESTER_OPTIONS = ["Fall 2018", "Winter 2019"].freeze
 
   has_many :enrollments
   has_many :students, through: :enrollments
@@ -8,12 +10,12 @@ class Course < ApplicationRecord
 
   validates :name, presence: true
 
-  scope :fall_semester, -> {where(semester: "Fall 2018")}
-  scope :winter_semester, -> {where(semester: "Winter 2019")}
+  scope :fall_semester, -> { where(semester: "Fall 2018") }
+  scope :winter_semester, -> { where(semester: "Winter 2019") }
 
   def course_teacher
     User.all.each do |user|
-      if self.teacher.id == user.role_id && user.role_type == "Teacher"
+      if teacher.id == user.role_id && user.role_type == "Teacher"
         return user.name
       end
     end
@@ -40,7 +42,7 @@ class Course < ApplicationRecord
       .course_name
   end
 
-  private
+private
 
   def enrollment_for_student(student)
     enrollments.find_by(course: self, student: student)
