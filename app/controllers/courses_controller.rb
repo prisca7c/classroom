@@ -14,7 +14,9 @@ class CoursesController < ApplicationController
 
   def create
     teacher = User.find_by_id(session[:user_id]).role
-    @course = Course.create(name: params[:course][:name], teacher: teacher, semester: params[:semester])
+    @course = Course.create(course_params)
+    @course.teacher = teacher
+    @course.semester = params[:semester]
     if @course.save
       redirect_to profiles_path(teacher)
     else
@@ -26,9 +28,7 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
   end
 
-  def edit; end
-
-  def update; end
-
-  def destroy; end
+  def course_params
+    params.require(:course).permit(:name)
+  end
 end
