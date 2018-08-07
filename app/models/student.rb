@@ -25,7 +25,7 @@ class Student < ApplicationRecord
       enrollment.student_id == self.id && enrollment.course_id == course.id
     end
   end
-#finds the first one and its the same everytime.
+
   def grade(course)
     enrollment(course).grade
   end
