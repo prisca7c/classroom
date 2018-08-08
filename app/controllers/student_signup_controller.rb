@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class StudentLoginController < ApplicationController
+class StudentSignupController < ApplicationController
   def new
     @user = User.new
   end
