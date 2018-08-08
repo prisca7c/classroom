@@ -21,8 +21,10 @@ Specs:
 
 - [ x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
 
-User: validates name presence, email, email uniqueness, password presence.
-Course: validates name presence, name uniqueness with the scope of course and student.
+User: validates name presence, email, email uniqueness, password presence, length between 6-20.
+validates email format.
+Course: validates name presence,
+Enrollment: validates name uniqueness with the scope of course and student.
 
 - [ x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
 
@@ -30,10 +32,10 @@ Course.fall_semester Course.winter_semester
 - [ x] Include signup (how e.g. Devise)
   built it all from scratch.  used bcrypt.  It uses 2 separate sign-up controllers
 - [ x] Include login (how e.g. Devise)
-    built from scratch wiht bcrypt.
+    built from scratch with bcrypt.
 
 - [ x] Include logout (how e.g. Devise)
-built from scratch wiht bcrypt.
+built from scratch with bcrypt.
 - [ x] Include nested resource show or index (URL e.g. users/2/recipes)
   nested the index page for courses in profiles.
 - [ x] Include nested resource "new" form (URL e.g.
