@@ -13,12 +13,18 @@ class Course < ApplicationRecord
   scope :fall_semester, -> { where(semester: "Fall 2018") }
   scope :winter_semester, -> { where(semester: "Winter 2019") }
 
+  # def course_teacher
+  #   User.all.each do |user|
+  #     if teacher.id == user.role_id && user.role_type == "Teacher"
+  #       return user.name
+  #     end
+  #   end
+  # end
+
   def course_teacher
-    User.all.each do |user|
-      if teacher.id == user.role_id && user.role_type == "Teacher"
-        return user.name
-      end
-    end
+    User.where(role_id: teacher.id, role_type: "Teacher")
+        .first
+        .name
   end
 
   # def self.winter_semester

@@ -10,7 +10,6 @@ class EnrollmentController < ApplicationController
     course = Course.find(params[:course][:name])
     student = User.find(session[:user_id]).role
     Enrollment.create(course: course, student: student, grade: Grade.new)
-
-    redirect_to profiles_path(student)
+    redirect_to profiles_path(@student)
   end
 end

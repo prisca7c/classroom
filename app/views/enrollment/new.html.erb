@@ -5,6 +5,9 @@ Fall 2018 Courses</a>
   <div class="col">
     <div class="collapse multi-collapse" id="multiCollapseExample1">
       <div class="card card-body">
+
+
+
 <%= form_for @course, url: '/enrollment' do |f| %>
 <%= f.label "Fall 2018:" %><br>
 <%= f.collection_select(:name, Course.fall_semester, :id, :name,{include_blank: 'Select a course'}) %><br><br>
@@ -31,6 +34,7 @@ Fall 2018 Courses</a>
     </div>
   </div>
 </div>
+
 
 
 <%= link_to "Return to Course Catalogue", profiles_courses_path %>

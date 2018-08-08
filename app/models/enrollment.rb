@@ -5,6 +5,8 @@ class Enrollment < ApplicationRecord
   belongs_to :course
   has_one :grade
 
+  validates :course_id, uniqueness: { scope: %i[student course] }
+
   def self.for_semester(semester)
     joins(:course)
       .where(enrollments: { courses: { semester: semester } })
