@@ -3,6 +3,7 @@
 class CoursesController < ApplicationController
   # before_action { role_is?(Teacher) || redirect_to(root_path) }
 
+  # /students/5/courses
   def index
     @courses = Course.all
     @user = User.find(session[:user_id])

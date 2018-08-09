@@ -13,7 +13,16 @@ Fall 2018 Courses</a>
   <div class="col">
     <div class="collapse multi-collapse" id="multiCollapseExample1">
       <div class="card card-body">
-
+<% if @enrollment.errors.any? %>
+  <div id="field_with_errors">
+    <h2>There were some errors:</h2>
+    <ul>
+      <% @enrollment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
 
 <%= form_for @course, url: '/enrollment' do |f| %>

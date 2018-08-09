@@ -36,7 +36,7 @@ class Course < ApplicationRecord
   end
 
   def enrollment_date_for_student(student)
-    enrollments.find_by(course: self, student: student).enrollment_date
+    enrollments.find_by(student: student).enrollment_date
   end
 
   def self.most_popular

@@ -36,6 +36,7 @@ Course.fall_semester Course.winter_semester
 
 - [ x] Include logout (how e.g. Devise)
 built from scratch with bcrypt.
+
 - [ x] Include nested resource show or index (URL e.g. users/2/recipes)
   nested the index page for courses in profiles.
 - [ x] Include nested resource "new" form (URL e.g.
