@@ -15,7 +15,7 @@
     <% unless course.students.empty? %>
     <% course.students.each do |student| %>
     <th scope="row"><%= student.student_name %></th>
-      <td><%=link_to student.grade(course).letter, grade_path(student.grade(course)) %></td>
+      <td><a href="/grades/<%= student.grade(course).id %>" data-"<%= student.grade(course).id %>"> View Grade </a></td>
     </tr>
       <% end %>
       <% else %>
@@ -32,4 +32,3 @@
 <%= link_to "Create a new course", new_profiles_course_path %>
 <br>
 <%= link_to "Log Out", session_path(@user), method: "delete" %>
-

@@ -1,0 +1,4 @@
+function getGrade() {
+  debugger
+  $.get()
+}

@@ -10,12 +10,19 @@ class GradesController < ApplicationController
   def update
     @enrollment = Enrollment.find(params[:id])
     @enrollment.grade.update(letter: params[:letter])
-    teacher = User.find(session[:user_id])
     @enrollment.save
-    redirect_to profiles_path(teacher)
+    @grade = Grade.find(params[:id])
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @grade.to_json }
+      end
   end
 
   def show
     @grade = Grade.find(params[:id])
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @grade.to_json }
+      end
   end
 end
