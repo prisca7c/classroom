@@ -10,8 +10,8 @@ class Course < ApplicationRecord
 
   validates :name, presence: true
 
-  scope :fall_semester, -> { where(semester: "Fall 2018") }
-  scope :winter_semester, -> { where(semester: "Winter 2019") }
+  scope :fall_semester, -> { where(semester: "Fall 2018").sort_by{|course| course.name} }
+  scope :winter_semester, -> { where(semester: "Winter 2019").sort_by{|course| course.name} }
 
   # def course_teacher
   #   User.all.each do |user|

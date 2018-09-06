@@ -13,6 +13,9 @@
 <% Course.fall_semester.each do |course| %>
   <th scope="row"><%=course.name %></th>
   <td><%= course.course_teacher %></td>
+  <% course.students.each do |student| %>
+  <td><%= student.name %></td>
+  <% end %>
 </tr>
 <% end %>
 

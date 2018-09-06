@@ -5,6 +5,7 @@ class Student < ApplicationRecord
   has_many :courses, through: :enrollments
   has_many :teachers, through: :courses
   has_many :grades, through: :enrollments
+  belongs_to :user
 
   def student_name
     User.all.each do |user|
