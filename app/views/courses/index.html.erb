@@ -42,16 +42,16 @@
 <h4>Fall 2018</h4>
 <% Course.fall_semester.each do |course| %>
 <div class="<%=course.id%>">
-<p><%= link_to course.name, profiles_course_path(course), class: "courses" %></p>
+<p><%= link_to course.name, profiles_course_path(course), class: "coursesFall" %></p>
 </div>
 <%end%>
 <script>
   $(function addEventListenerToLink() {
-    $('a.courses').on('click',function(e) {
+    $('a.coursesFall').on('click',function(e) {
       e.preventDefault()
       $.get(e.target.href, function(data) {
         let courseAppender = new Appender
-        courseAppender.courseIndexPage(data)
+        courseAppender.fallCourseIndexPage(data)
         // let courseName = data["name"]
         // let courseId = data["id"]
         // let courseTeacher = data["teacher"]["user"]["name"]
@@ -73,16 +73,16 @@
 <h4>Winter 2019</h4>
 <% Course.winter_semester.each do |course| %>
 <div class="<%=course.id%>">
-<p><%= link_to course.name, profiles_course_path(course), class: "courses" %></p>
+<p><%= link_to course.name, profiles_course_path(course), class: "coursesWinter" %></p>
 </div>
 <%end%>
 <script>
   $(function addEventListenerToLink() {
-    $('a.courses').on('click',function(e) {
+    $('a.coursesWinter').on('click',function(e) {
       e.preventDefault()
       $.get(e.target.href, function(data) {
         let courseAppender = new Appender
-        courseAppender.courseIndexPage(data)
+        courseAppender.winterCourseIndexPage(data)
         // let courseName = data["name"]
         // let courseId = data["id"]
         // let courseTeacher = data["teacher"]["user"]["name"]
