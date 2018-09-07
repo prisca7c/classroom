@@ -1,6 +1,6 @@
 class GradesController < ApplicationController
-
-  before_action :ensure_is_a_teacher
+skip_before_action :verify_authenticity_token
+before_action :ensure_is_a_teacher
 
 
   def edit

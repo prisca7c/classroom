@@ -1,20 +1,22 @@
 <script>
   $(function addEventListenerToForm() {
-    $('form').submit(function (e) {
+    let id = jQuery( "#grade_id:hidden" ).val()
+    $('form').on('submit',function (e) {
       e.preventDefault()
       let values = $(this).serialize();
-      let id = jQuery( "#grade_id:hidden" ).val()
+      // let id = jQuery( "#grade_id:hidden" ).val()
       let posting = $.post('/grades/' + id + '.json', values);
       posting.done(function(data) {
+
         console.log(data)
         $('#grade-letter').html(data.letter)
         // debugger
       });
     })
-  })
+  });
 </script>
-
-Current Grade:<div id="grade-letter"><%= @grade.letter %></div>
+<!-- <%= javascript_include_tag "gradeshowpage.js" %> -->
+<em>Current Grade:</em><div id="grade-letter"><%= @grade.letter %></div>
 
 
 <!-- <%= link_to "Edit Grade", edit_grade_path %> -->
@@ -23,5 +25,5 @@ Current Grade:<div id="grade-letter"><%= @grade.letter %></div>
   <%= f.label :letter %>
   <%= f.hidden_field :id %>
   <%= select_tag :letter, options_for_select(["A","B","C","D","F","NG"]) %>
-  <%= f.submit "Test" %>
+  <%= f.submit "Update Grade", id: "submitButton" %>
   <% end %>

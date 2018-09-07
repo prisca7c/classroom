@@ -27,6 +27,11 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
+    render json: @course.to_json(include: [teacher: {include: :user}, students: {include: :user}])
+    # respond_to do |format|
+    #   format.html { render :show }
+    #   format.json { render json: @course.to_json }
+    #   end
   end
 
   def course_params

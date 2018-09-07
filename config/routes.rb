@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resource :profiles, only: [:show] do
-    resources :courses, only: [:new, :create, :index]
+    resources :courses, only: [:new, :create, :index, :show]
   end
 
   resources :teacher_signup, only: [:new, :create]
