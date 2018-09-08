@@ -7,11 +7,11 @@ class Student < ApplicationRecord
   has_many :grades, through: :enrollments
   belongs_to :user
 
-  def student_name
-    User.all.each do |user|
-      return user.name if user.role_id == id && user.role_type == "Student"
-    end
-  end
+  # def student_name
+  #   User.all.each do |user|
+  #     return user.name if user.role_id == id && user.role_type == "Student"
+  #   end
+  # end
 
   def fall_2018
     courses.select { |course| course.semester == "Fall 2018" }

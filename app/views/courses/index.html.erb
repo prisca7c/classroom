@@ -1,43 +1,5 @@
 <h3>Course Catalogue</h3><br>
 
-<!-- <h4>Fall 2018</h4>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Course Name</th>
-      <th scope="col">Instructor</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-<% Course.fall_semester.each do |course| %>
-  <th scope="row"><%=course.name %></th>
-  <td><%= course.course_teacher %></td>
-
-</tr>
-<% end %>
-
-  </tbody>
-</table>
-
-
-<h4>Winter 2019</h4>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Course Name</th>
-      <th scope="col">Instructor</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-<% Course.winter_semester.each do |course| %>
-  <th scope="row"><%=course.name %></th>
-  <td><%= course.course_teacher %></td>
-  </tr>
-<% end %>
-  </tbody>
-</table> -->
 
 <h4>Fall 2018</h4>
 <% Course.fall_semester.each do |course| %>
@@ -52,19 +14,6 @@
       $.get(e.target.href, function(data) {
         let courseAppender = new Appender
         courseAppender.fallCourseIndexPage(data)
-        // let courseName = data["name"]
-        // let courseId = data["id"]
-        // let courseTeacher = data["teacher"]["user"]["name"]
-        // let studentArray = data["students"]
-        // function test(studentArray) {
-        //   let emptyArray = []
-        //   for (var i = 0; i < studentArray.length; i++) {
-        //     emptyArray.push('<tr><th scope="row">Student</th><td class="studentName">' + studentArray[i]["user"]["name"] + '</td></tr>')
-        //   }
-        //   return emptyArray.join("")
-        // }
-        // $(`div.${courseId}`).append('<table class="table table-striped"><thead><tr><th scope="col">Role</th><th scope="col">Name</th></tr></thead><tbody><tr><th scope="row">Instructor</th><td class="instructor">' + courseTeacher + '</td></tr>' + test(studentArray) + '</tbody></table>')
-      // debugger
       })
     })
   })
@@ -83,19 +32,6 @@
       $.get(e.target.href, function(data) {
         let courseAppender = new Appender
         courseAppender.winterCourseIndexPage(data)
-        // let courseName = data["name"]
-        // let courseId = data["id"]
-        // let courseTeacher = data["teacher"]["user"]["name"]
-        // let studentArray = data["students"]
-        // function test(studentArray) {
-        //   let emptyArray = []
-        //   for (var i = 0; i < studentArray.length; i++) {
-        //     emptyArray.push('<tr><th scope="row">Student</th><td class="studentName">' + studentArray[i]["user"]["name"] + '</td></tr>')
-        //   }
-        //   return emptyArray.join("")
-        // }
-        // $(`div.${courseId}`).append('<table class="table table-striped"><thead><tr><th scope="col">Role</th><th scope="col">Name</th></tr></thead><tbody><tr><th scope="row">Instructor</th><td class="instructor">' + courseTeacher + '</td></tr>' + test(studentArray) + '</tbody></table>')
-      // debugger
       })
     })
   })
