@@ -2,8 +2,6 @@
 
 class User < ApplicationRecord
   belongs_to :role, polymorphic: true
-  has_many :students
-  has_many :teachers 
   validates :name, presence: true
   validates :email, presence: true
   validates :email, uniqueness: true

@@ -3,6 +3,44 @@
 <h3> Welcome, <%= @user.name %>! </h3><br>
 
 <h4>Your courses:</h4><br>
+<div class="fallinfo">
+<a href="#" class="fallinfo" data-id="<%= @user.role.id %>">Fall 2018 </a>
+</div>
+<br>
+<div class="winterinfo">
+<a href="#" class="winterinfo" data-id="<%= @user.role.id %>">Winter 2019 </a>
+</div>
+
+<script>
+  $(function addEventListenerToStudentPage() {
+    $('a.fallinfo').on('click', function (e) {
+      e.preventDefault()
+      let id = e.target.dataset.id
+      let emptyArray = []
+      $.get('students/' + id + '/fallcourses', function (data) {
+
+          let enrollmentArray = data
+        function dataCollector(enrollmentArray) {
+          for (var i = 0; i < enrollmentArray.length; i++) {
+            let courseName = enrollmentArray[i]["course"]["name"]
+            let grade = enrollmentArray[i]["grade"]["letter"]
+            let enrolledOnRaw = enrollmentArray[i]["created_at"].split("T")[0]
+            // var enrolledOn = enrolledOnRaw.split("T")[1]
+            emptyArray.push('<tr><th scope="row">' + courseName + '</th><td>' + grade + '</td><td>' + enrolledOnRaw + '</td></tr>')
+          }
+          return emptyArray.join("")
+        }
+        $('div.fallinfo').append('<table class="table table-striped"<thead><tr><th scope="col">Course Name</th><th scope="col">Grade</th><th scope="col">Enrolled On</th></tr></thead><tbody>' + dataCollector(enrollmentArray) + '</tbody></table>')
+      })
+
+    })
+  })
+  // $(function enroll(enrolledOnRaw) {
+  //   return enrolledOnRaw.split("T")[1]
+  // })
+</script>
+<br>
+<br>
 
 <p><u>Fall 2018</u></p>
 <table class="table table-striped">

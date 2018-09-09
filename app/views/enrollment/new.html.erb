@@ -43,7 +43,7 @@ Fall 2018 Courses</a>
 <%= form_for @course, url: '/enrollment' do |f| %>
 <%= f. label "Winter 2019:" %><br>
 <%= f.collection_select(:name, Course.winter_semester, :id, :name,{include_blank: 'Select a course'}) %><br><br>
-<%= f.label :student_year %>:
+
 <br>
 <%= f.submit "Enroll!" %><br>
 <% end %><br>

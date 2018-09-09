@@ -2,13 +2,13 @@ class Appender {
   fallCourseIndexPage(data) {
     let courseName = data["name"]
     let courseId = data["id"]
-    let courseTeacher = data["teacher"]["user"]["name"]
+    let courseTeacher = data["teacher"]["users"][0]["name"]
     let semester = data["semester"]
     let studentArray = data["students"]
     function test(studentArray) {
       let emptyArray = []
       for (var i = 0; i < studentArray.length; i++) {
-        emptyArray.push('<tr><th scope="row">Student</th><td class="studentName">' + studentArray[i]["user"]["name"] + '</td></tr>')
+        emptyArray.push('<tr><th scope="row">Student</th><td class="studentName">' + studentArray[i]["users"][0]["name"] + '</td></tr>')
       }
       return emptyArray.join("")
     }
@@ -18,13 +18,13 @@ class Appender {
   winterCourseIndexPage(data) {
     let courseName = data["name"]
     let courseId = data["id"]
-    let courseTeacher = data["teacher"]["user"]["name"]
+    let courseTeacher = data["teacher"]["users"][0]["name"]
     let semester = data["semester"]
     let studentArray = data["students"]
     function test(studentArray) {
       let emptyArray = []
       for (var i = 0; i < studentArray.length; i++) {
-        emptyArray.push('<tr><th scope="row">Student</th><td class="studentName">' + studentArray[i]["user"]["name"] + '</td></tr>')
+        emptyArray.push('<tr><th scope="row">Student</th><td class="studentName">' + studentArray[i]["users"][0]["name"] + '</td></tr>')
       }
       return emptyArray.join("")
     }
