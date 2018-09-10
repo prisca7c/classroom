@@ -18,23 +18,23 @@
       let id = e.target.dataset.id
       let emptyArray = []
       $.get('students/' + id + '/fallcourses', function (data) {
-
-          let enrollmentArray = data
-        function dataCollector(enrollmentArray) {
-          for (var i = 0; i < enrollmentArray.length; i++) {
-            let courseName = enrollmentArray[i]["course"]["name"]
-            let grade = enrollmentArray[i]["grade"]["letter"]
-            let enrolledOnRaw = enrollmentArray[i]["created_at"].split("T")[0]
-            // var enrolledOn = enrolledOnRaw.split("T")[1]
-            emptyArray.push('<tr><th scope="row">' + courseName + '</th><td>' + grade + '</td><td>' + enrolledOnRaw + '</td></tr>')
-          }
-          return emptyArray.join("")
-        }
-        $('div.fallinfo').append('<table class="table table-striped"<thead><tr><th scope="col">Course Name</th><th scope="col">Grade</th><th scope="col">Enrolled On</th></tr></thead><tbody>' + dataCollector(enrollmentArray) + '</tbody></table>')
+        let studentShowAppender = new Appender
+        studentShowAppender.studentShowPageFall(data)
       })
-
     })
   })
+  $(function addEventListenerToStudentPageWinter() {
+    $('a.winterinfo').on('click', function (e) {
+      e.preventDefault()
+      let id = e.target.dataset.id
+      let emptyArray = []
+      $.get('students/' + id + '/wintercourses', function (data) {
+        let studentShowAppender = new Appender
+        studentShowAppender.studentShowPageWinter(data)
+    })
+  })
+})
+
   // $(function enroll(enrolledOnRaw) {
   //   return enrolledOnRaw.split("T")[1]
   // })
@@ -42,7 +42,7 @@
 <br>
 <br>
 
-<p><u>Fall 2018</u></p>
+<!-- <p><u>Fall 2018</u></p>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -80,7 +80,7 @@
 </tr>
 <% end %>
  </tbody>
-</table>
+</table> -->
 <br>
 <%= link_to "View Course Catalogue", profiles_courses_path %>
 <br>
