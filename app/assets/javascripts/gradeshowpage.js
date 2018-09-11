@@ -38,12 +38,12 @@ class Appender {
       let courseName = data[i]["course"]["name"]
       let grade = data[i]["grade"]["letter"]
       let enrolledOnRaw = data[i]["created_at"].split("T")[0]
-      // var enrolledOn = enrolledOnRaw.split("T")[1]
       emptyArray.push('<tr><th scope="row">' + courseName + '</th><td>' + grade + '</td><td>' + enrolledOnRaw + '</td></tr>')
     }
     return emptyArray.join("")
     }
     $('div.fallinfo').append('<table class="table table-striped"<thead><tr><th scope="col">Course Name</th><th scope="col">Grade</th><th scope="col">Enrolled On</th></tr></thead><tbody>' + dataCollector(data) + '</tbody></table>')
+    $('a.fallinfo')
   }
 
   studentShowPageWinter(data) {
@@ -59,6 +59,7 @@ class Appender {
     return emptyArray.join("")
     }
     $('div.winterinfo').append('<table class="table table-striped"<thead><tr><th scope="col">Course Name</th><th scope="col">Grade</th><th scope="col">Enrolled On</th></tr></thead><tbody>' + dataCollector(data) + '</tbody></table>')
+    $('a.winterinfo')
   }
 
 }

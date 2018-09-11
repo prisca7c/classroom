@@ -12,4 +12,12 @@ RSpec.describe Course, type: :model do
     @course.students << Student.new
     expect(@course.students.length).to eq (1)
   end
+
+  it "belongs to a teacher" do
+    @course = Course.new
+    @course.teacher = Teacher.new
+    expect(@course.teacher.class.name).to eq("Teacher")
+  end
+
+
 end

@@ -3,41 +3,56 @@
 <h3> Welcome, <%= @user.name %>! </h3><br>
 
 <h4>Your courses:</h4><br>
-<div class="fallinfo">
+
 <a href="#" class="fallinfo" data-id="<%= @user.role.id %>">Fall 2018 </a>
+<div class="fallinfo">
 </div>
 <br>
-<div class="winterinfo">
+
 <a href="#" class="winterinfo" data-id="<%= @user.role.id %>">Winter 2019 </a>
+<div class="winterinfo">
 </div>
 
 <script>
   $(function addEventListenerToStudentPage() {
-    $('a.fallinfo').on('click', function (e) {
-      e.preventDefault()
-      let id = e.target.dataset.id
-      let emptyArray = []
-      $.get('students/' + id + '/fallcourses', function (data) {
-        let studentShowAppender = new Appender
-        studentShowAppender.studentShowPageFall(data)
-      })
-    })
-  })
-  $(function addEventListenerToStudentPageWinter() {
-    $('a.winterinfo').on('click', function (e) {
-      e.preventDefault()
-      let id = e.target.dataset.id
-      let emptyArray = []
-      $.get('students/' + id + '/wintercourses', function (data) {
-        let studentShowAppender = new Appender
-        studentShowAppender.studentShowPageWinter(data)
-    })
-  })
-})
+    let counter = 1
 
-  // $(function enroll(enrolledOnRaw) {
-  //   return enrolledOnRaw.split("T")[1]
-  // })
+    $('a.fallinfo').on('click', function (e) {
+        counter += 1
+      if (counter % 2 == 0) {
+        e.preventDefault()
+        let id = e.target.dataset.id
+        let emptyArray = []
+        $.get('students/' + id + '/fallcourses', function (data) {
+          let studentShowAppender = new Appender
+          studentShowAppender.studentShowPageFall(data)
+        })
+      }
+    else {
+        $('div.fallinfo').html("")
+      }
+    })
+  })
+  $(function addEventListenerToStudentPage() {
+    let counter = 1
+
+    $('a.winterinfo').on('click', function (e) {
+        counter += 1
+      if (counter % 2 == 0) {
+        e.preventDefault()
+        let id = e.target.dataset.id
+        let emptyArray = []
+        $.get('students/' + id + '/wintercourses', function (data) {
+          let studentShowAppender = new Appender
+          studentShowAppender.studentShowPageWinter(data)
+        })
+      }
+    else {
+        $('div.winterinfo').html("")
+      }
+    })
+  })
+
 </script>
 <br>
 <br>

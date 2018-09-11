@@ -28,7 +28,7 @@ protected
   end
 
   def current_user=(user)
-    @current_user = session[:user_id] = user.id
+    @current_user = session[:user_id] || user.id
   end
 
   def current_role
