@@ -27,7 +27,7 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
-    render json: @course.to_json(include: [teacher: {include: :users}, students: {include: :users}])
+    render json: @course.to_json(include: [teacher: { include: :users }, students: { include: :users }])
   end
 
   def course_params

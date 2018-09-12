@@ -1,7 +1,8 @@
-class GradesController < ApplicationController
-skip_before_action :verify_authenticity_token
-before_action :ensure_is_a_teacher
+# frozen_string_literal: true
 
+class GradesController < ApplicationController
+  skip_before_action :verify_authenticity_token
+  before_action :ensure_is_a_teacher
 
   def edit
     @grade = Grade.find(params[:id])
@@ -15,7 +16,7 @@ before_action :ensure_is_a_teacher
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @grade.to_json }
-      end
+    end
   end
 
   def show
@@ -23,6 +24,6 @@ before_action :ensure_is_a_teacher
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @grade.to_json }
-      end
+    end
   end
 end

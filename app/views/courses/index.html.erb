@@ -4,14 +4,13 @@
 <h4>Fall 2018</h4>
 <% Course.fall_semester.each do |course| %>
 <div class="<%=course.id%>">
-<p><%= link_to course.name, profiles_course_path(course), class: "coursesFall" %></p>
+<p><%= link_to course.name, profiles_course_path(course), class: "coursesFall", id: "#{course.id}" %></p>
 </div>
 <%end%>
 <script>
   $(function addEventListenerToLink() {
     $('a.coursesFall').on('click',function(e) {
       e.preventDefault()
-      
       $.get(e.target.href, function(data) {
         let courseAppender = new Appender
         courseAppender.fallCourseIndexPage(data)

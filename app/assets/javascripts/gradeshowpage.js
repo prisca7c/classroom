@@ -13,6 +13,10 @@ class Appender {
       return emptyArray.join("")
     }
     $(`div.${courseId}`).append('Semester: ' + semester + '<table class="table table-striped"><thead><tr><th scope="col">Role</th><th scope="col">Name</th></tr></thead><tbody><tr><th scope="row">Instructor</th><td class="instructor">' + courseTeacher + '</td></tr>' + test(studentArray) + '</tbody></table>')
+    $(`#${courseId}`).off()
+    $(`#${courseId}`).on('click', function(e) {
+      e.preventDefault()
+    })
   }
 
   winterCourseIndexPage(data) {
@@ -29,6 +33,10 @@ class Appender {
       return emptyArray.join("")
     }
     $(`div.${courseId}`).append('Semester: ' + semester + '<table class="table table-striped"><thead><tr><th scope="col">Role</th><th scope="col">Name</th></tr></thead><tbody><tr><th scope="row">Instructor</th><td class="instructor">' + courseTeacher + '</td></tr>' + test(studentArray) + '</tbody></table>')
+    $(`#${courseId}`).off()
+    $(`#${courseId}`).on('click', function(e) {
+      e.preventDefault()
+    })
   }
 
   studentShowPageFall(data) {
