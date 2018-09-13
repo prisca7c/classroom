@@ -9,10 +9,9 @@ class GradesController < ApplicationController
   end
 
   def update
-    @enrollment = Enrollment.find(params[:id])
-    @enrollment.grade.update(letter: params[:letter])
-    @enrollment.save
     @grade = Grade.find(params[:id])
+    @grade.update(letter: params[:letter])
+    @grade.save
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @grade.to_json }
@@ -21,6 +20,7 @@ class GradesController < ApplicationController
 
   def show
     @grade = Grade.find(params[:id])
+    @user = User.find(session[:user_id])
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @grade.to_json }

@@ -15,14 +15,16 @@
   });
 </script>
 <!-- <%= javascript_include_tag "gradeshowpage.js" %> -->
-<em>Current Grade:</em><div id="grade-letter"><%= @grade.letter %></div>
+<div id="grade-letter"><em>Current Grade:</em><%= @grade.letter %></div>
 
 
 <!-- <%= link_to "Edit Grade", edit_grade_path %> -->
-
+<br>
 <%= form_for @grade do |f| %>
   <%= f.label :letter %>
   <%= f.hidden_field :id %>
   <%= select_tag :letter, options_for_select(["A","B","C","D","F","NG"]) %>
   <%= f.submit "Update Grade", id: "submitButton" %>
   <% end %>
+<br>
+  <%= link_to "Return to Profile", profiles_path(@user) %>

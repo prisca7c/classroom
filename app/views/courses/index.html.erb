@@ -22,7 +22,7 @@
 <h4>Winter 2019</h4>
 <% Course.winter_semester.each do |course| %>
 <div class="<%=course.id%>">
-<p><%= link_to course.name, profiles_course_path(course), class: "coursesWinter" %></p>
+<p><%= link_to course.name, profiles_course_path(course), class: "coursesWinter", id: "#{course.id}" %></p>
 </div>
 <%end%>
 <script>
